@@ -7,3 +7,5 @@
         1. [X] - método Routes
     1.  [X] - Rodando o server
 1. [X] - Criando HomeController
+1. [X] - Configurando e testando o sequelize
+1. [X] - Primeira migrate

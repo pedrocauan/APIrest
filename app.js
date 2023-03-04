@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
+import './src/database'; // linka com a database
 import express from 'express';
 import homeRouter from './src/routes/homeRoutes';
 
