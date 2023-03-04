@@ -1,5 +1,5 @@
 {
-    "execMap": {
+    "execMac": {
         "js": "node -r sucrase/register"
     }
 }

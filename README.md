@@ -6,3 +6,4 @@
         1. [X] - método middlewares
         1. [X] - método Routes
     1.  [X] - Rodando o server
+1. [X] - Criando HomeController

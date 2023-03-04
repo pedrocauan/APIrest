@@ -1,7 +1,11 @@
 // CONFIGURAÇÕES DA APLICAÇÃO
 
+import dotenv from 'dotenv';
+
 import express from 'express';
 import homeRouter from './src/routes/homeRoutes';
+
+dotenv.config();
 
 class App {
   constructor() {
@@ -16,6 +20,7 @@ class App {
   }
 
   routes() {
+    // usa a rota da home importada
     this.app.use('/', homeRouter);
   }
 }

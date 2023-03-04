@@ -1,4 +1,4 @@
-// INICIO DA APLICAÇÃO
+// STARTA A APLICAÇÃO
 import app from './app';
 
 const port = 5444;
