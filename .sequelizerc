@@ -1,9 +1,8 @@
 const { resolve } = require("path");
 
-
 module.exports = {
     config: resolve(__dirname, "src", "config", "database.js"),
-    "models-path": resolve(__dirname, "src", "models"),
-    "migrations-path": resolve(__dirname, "src", "database", "migrations"), //alterações no banco de dados
-    "seeders-path": resolve(__dirname, "src", "database", "seeds")
+    'models-path': resolve(__dirname, "src", "models"),
+    'migrations-path': resolve(__dirname, "src", "database", "migrations"), /* migrations sao alterações feitas em uma tabela */
+    'seeders-path': resolve(__dirname, "src", "models", "seeds",),
 };
