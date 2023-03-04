@@ -8,6 +8,8 @@ const router = new Router();
 // CREATE
 router.post('/', userController.store);
 
+router.get('/', userController.index);
+
 export default router;
 
 /**
