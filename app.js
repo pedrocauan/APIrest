@@ -6,7 +6,8 @@ dotenv.config();
 
 import './src/database'; // linka com a database
 import express from 'express';
-import homeRouter from './src/routes/homeRoutes';
+import homeRoutes from './src/routes/homeRoutes';
+import userRoutes from './src/routes/userRoutes';
 
 class App {
   constructor() {
@@ -22,7 +23,8 @@ class App {
 
   routes() {
     // usa a rota da home importada
-    this.app.use('/', homeRouter);
+    this.app.use('/', homeRoutes);
+    this.app.use('/users/', userRoutes);
   }
 }
 
