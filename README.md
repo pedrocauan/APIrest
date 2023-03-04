@@ -9,3 +9,6 @@
 1. [X] - Criando HomeController
 1. [X] - Configurando e testando o sequelize
 1. [X] - Primeira migrate
+1. [X] - Criando usuarios
+    1. [X] - Criação do model users
+    1. [X] - Validação  dos campos
