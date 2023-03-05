@@ -19,3 +19,5 @@
     1. [X] - Função Update (UPDATE)
     1. [X] - Função Delete (DELETE)
 1. [ ] - Criando JWT do usuário
+    1. - [X] - Verificando se o usuario existe
+    1. - [X] - Verificando se a senha é válida
