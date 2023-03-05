@@ -19,13 +19,14 @@ export default async (req, res, next) => {
 
     const { id, email } = dados;
 
+    /* Evita que um usuario com email alterado continue na sessão */
     const user = await User.findOne({
       where: {
         id,
         email,
       },
     });
-
+    // se nao encontrou nem id nem email no banco ele retorna erro
     if (!user) {
       return res.status(401).json({
         errors: ['Usuario inválido'],
