@@ -35,6 +35,7 @@ export default class User extends Model {
         type: Sequelize.STRING,
         defaultValue: '',
       },
+      /* Campo que nao vai exsitir na base de dados */
       password: {
         type: Sequelize.VIRTUAL,
         defaultValue: '',
@@ -45,14 +46,17 @@ export default class User extends Model {
             msg: 'A senha precisa ter entre 6 e 50 caracteres',
           },
         },
-      }, /* Campo que nao vai exsitir na base de dados */
+      },
     }, {
       sequelize,
     });
 
     // transforma a senha digitada no formulário em um hash
     this.addHook('beforeSave', async (user) => {
-      user.password_hash = await bcryptjs.hash(user.password, 8);
+      // evita conflitos caso a senha nao seja passada no update
+      if (user.password) {
+        user.password_hash = await bcryptjs.hash(user.password, 8);
+      }
     });
 
     return this;
