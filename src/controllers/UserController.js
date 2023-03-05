@@ -20,7 +20,8 @@ class UserController {
   async index(req, res) {
     try {
       // Pega todos os usuarios
-      const users = await User.findAll();
+      const users = await User.findAll({ attributes: ['id', 'nome', 'email'] });
+
       return res.json(users);
     } catch (e) {
       return res.json(null);
@@ -32,7 +33,10 @@ class UserController {
     try {
       // pega um usuario
       const user = await User.findByPk(req.params.id);
-      return res.json(user);
+
+      const { id, nome, email } = user;
+
+      return res.json({ id, nome, email });
     } catch (e) {
       return res.json(null);
     }

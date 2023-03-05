@@ -4,6 +4,7 @@ import User from '../models/User';
 class TokenController {
   async store(req, res) {
     const { email = '', password = '' } = req.body;
+    console.log(req.body.email, req.body.password);
 
     // verifica se foi enviado email e a senha
     if (!email || !password) {
