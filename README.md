@@ -18,3 +18,4 @@
     1. [X] - Função Show  (READ)
     1. [X] - Função Update (UPDATE)
     1. [X] - Função Delete (DELETE)
+1. [ ] - Criando JWT do usuário
