@@ -66,6 +66,33 @@ class UserController {
       });
     }
   }
+
+  // DELETE
+  async delete(req, res) {
+    try {
+      if (!req.params.id) {
+        return res.status(400).json({
+          errors: ['ID não enviado'],
+        });
+      }
+
+      const user = await User.findByPk(req.params.id);
+
+      if (!user) {
+        return res.status(400).json({
+          errors: ['Usuário não existe !!'],
+        });
+      }
+      // deleta o registro da database
+      await user.destroy();
+      return res.json(user);
+    } catch (e) {
+      console.log(e);
+      return res.status(400).json({
+        errors: e.errors.map((err) => err.message),
+      });
+    }
+  }
 }
 
 export default new UserController();
