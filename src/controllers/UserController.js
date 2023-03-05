@@ -46,14 +46,14 @@ class UserController {
   async update(req, res) {
     try {
       // ve se o id foi enviado
-      if (!req.params.id) {
-        return res.status(400).json({
-          errors: ['ID não enviado'],
-        });
-      }
+      // if (!req.params.id) {
+      //   return res.status(400).json({
+      //     errors: ['ID não enviado'],
+      //   });
+      // }
 
       // pega um usuario
-      const user = await User.findByPk(req.params.id);
+      const user = await User.findByPk(req.userId);
 
       if (!user) {
         return res.status(400).json({
