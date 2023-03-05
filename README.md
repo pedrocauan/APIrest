@@ -16,5 +16,5 @@
     1. [X] - função index (MOSTRA TODOS OS USUARIOS)
     1. [X] - Função Store (CREATE)
     1. [X] - Função Show  (READ)
-    1. [ ] - Função Update (UPDATE)
+    1. [X] - Função Update (UPDATE)
     1. [ ] - Função Delete (DELETE)
