@@ -22,3 +22,4 @@
     1. - [X] - Verificando se o usuario existe
     1. - [X] - Verificando se a senha é válida
     1. - [X] - Criação e retorno do token
+1. [X] - Middleware de autenticação do JWT
