@@ -12,9 +12,9 @@
 1. [X] - Criando usuarios
     1. [X] - Criação do model users
     1. [X] - Validação  dos campos
-1. [ ] - CRUD DE USUARIOS
+1. [X] - CRUD DE USUARIOS
     1. [X] - função index (MOSTRA TODOS OS USUARIOS)
     1. [X] - Função Store (CREATE)
     1. [X] - Função Show  (READ)
     1. [X] - Função Update (UPDATE)
-    1. [ ] - Função Delete (DELETE)
+    1. [X] - Função Delete (DELETE)
