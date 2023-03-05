@@ -1,3 +1,4 @@
+import jwt from 'jsonwebtoken';
 import User from '../models/User';
 
 class TokenController {
@@ -28,7 +29,13 @@ class TokenController {
       });
     }
 
-    return res.json(user);
+    // criação do token -> id + email + token-secreto(chave)
+    const { id } = user;
+    const token = jwt.sign({ id, email }, process.env.TOKEN_SECRET, {
+      expiresIn: process.env.TOKEN_EXPIRATION, /* Tempo em que o token vai expirar */
+    });
+
+    return res.json({ token });
   }
 }
 
