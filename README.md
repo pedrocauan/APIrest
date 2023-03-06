@@ -23,3 +23,7 @@
     1. - [X] - Verificando se a senha é válida
     1. - [X] - Criação e retorno do token
 1. [X] - Middleware de autenticação do JWT
+1. [X] - Correções de segurança da aplicação
+    1. [X] - Requerindo login pra que o usuario possa editar e deletar informações
+    1. [X] - Fazendo com que o usuario só possa SE EDITAR
+    1. [X] - fazendo com que funções de read não exibam senhas

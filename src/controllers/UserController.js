@@ -5,7 +5,8 @@ class UserController {
   async store(req, res) {
     try {
       const novoUser = await User.create(req.body);
-      return res.json(novoUser);
+      const { id, nome, email } = novoUser;
+      return res.json({ id, nome, email });
     } catch (e) {
       console.log(e);
 
@@ -62,7 +63,8 @@ class UserController {
       }
       // altera os dados na data base
       const novosDados = await user.update(req.body);
-      return res.json(novosDados);
+      const { id, nome, email } = novosDados;
+      return res.json({ id, nome, email });
     } catch (e) {
       console.log(e);
       return res.status(400).json({
@@ -89,7 +91,7 @@ class UserController {
       }
       // deleta o registro da database
       await user.destroy();
-      return res.json(user);
+      return res.json(null);
     } catch (e) {
       console.log(e);
       return res.status(400).json({
