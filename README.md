@@ -27,3 +27,4 @@
     1. [X] - Requerindo login pra que o usuario possa editar e deletar informações
     1. [X] - Fazendo com que o usuario só possa SE EDITAR
     1. [X] - fazendo com que funções de read não exibam senhas
+1. [X] - Criando seeds
