@@ -28,3 +28,5 @@
     1. [X] - Fazendo com que o usuario só possa SE EDITAR
     1. [X] - fazendo com que funções de read não exibam senhas
 1. [X] - Criando seeds
+1. [ ] - Rotas de alunos
+    1. [X] - Criando migrate que alterar o campo email para unique
