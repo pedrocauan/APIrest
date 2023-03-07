@@ -22,7 +22,7 @@ class AlunoController {
 
       if (!id) {
         return res.status(400).json({
-          errors: ['Faltando ID'],
+          errors: ['ID não enviado'],
         });
       }
 
@@ -45,7 +45,32 @@ class AlunoController {
   }
 
   async delete(req, res) {
+    try {
+      const { id } = req.params;
 
+      if (!id) {
+        return res.status(400).json({
+          errors: ['ID não enviado'],
+        });
+
+        const aluno = await Aluno.findByPk(id);
+        if (!aluno) {
+          return res.status(400).json({
+            errors: ['Aluno não existe'],
+          });
+        }
+
+        await aluno.destroy();
+        // retorna um bool informando se o aluno foi ou nao apagado
+        return res.json({
+          apagado: true,
+        });
+      }
+    } catch (e) {
+      return res.status(400).json({
+        errors: e.errors.map((err) => err.message),
+      });
+    }
   }
 }
 
