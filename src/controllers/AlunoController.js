@@ -8,8 +8,8 @@ class AlunoController {
 
   async store(req, res) {
     try {
-      await Aluno.create(req.body);
-      return res.json({ msg: 'Criado com sucesso' });
+      const aluno = await Aluno.create(req.body);
+      return res.json(aluno);
     } catch (e) {
       console.log(e);
       return res.status(404).json({
@@ -39,15 +39,16 @@ class AlunoController {
 
       // atualiza o registro  nos campos enviados no corpo da requisição
       const novosDados = await aluno.update(req.body);
+      console.log(novosDados);
       const {
         nome, sobrenome, email, idade, peso, altura,
       } = novosDados;
-
-      return res.json({
-        nome, sobrenome, email, idade, peso, altura,
-      });
+      return res.json(novosDados);
     } catch (e) {
-      return res.status(400).json({ msg: 'erro' });
+      console.log(typeof e.message);
+      return res.status(400).json({
+        errors: e.errors.map((err) => err.message),
+      });
       // return res.status(400).json({
       //   errors: e.errors.map((err) => err.message),
       // });
@@ -100,7 +101,7 @@ class AlunoController {
         });
       }
       await aluno.destroy();
-      return res.json({ msg: 'Deletado com sucesso' });
+      return res.json({ apagado: true });
     } catch (e) {
       return res.status(400).json({
         errors: e.errors.map((err) => err.message),
