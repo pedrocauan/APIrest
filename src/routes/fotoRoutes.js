@@ -1,10 +1,15 @@
-// === ROTAS DA HOME ===
+// === ROTAS DE FOTO ===
 
 import { Router } from 'express';
+import multer from 'multer';
+
 import fotoController from '../controllers/FotoController';
+import multerConfig from '../config/multer';
+
+const upload = multer(multerConfig);
 
 const router = new Router();
 
-router.post('/', fotoController.store);
+router.post('/', upload.single('foto'), fotoController.store);
 
 export default router;
