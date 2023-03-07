@@ -35,3 +35,5 @@
     1. [X] - Função Delete -> Apaga um aluno  (DELETE)
     1. [X] - Função Update -> Altera aluno    (UPDATE)
     1. [X] - Função Store  -> Cria Aluno      (CREATE)
+1. [ ] - Upload de arquivos
+    1. [X] - Instalando o multer
