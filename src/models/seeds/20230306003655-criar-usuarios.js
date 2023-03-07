@@ -1,3 +1,4 @@
+// insere dados automaticamente no banco
 const bcryptjs = require('bcryptjs');
 
 /** @type {import('sequelize-cli').Migration} */
