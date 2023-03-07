@@ -31,5 +31,7 @@
 1. [X] - Rotas de alunos
     1. [X] - Criando migrate que alterar o campo email para unique
 1. [X] - CRUD DE ALUNOS
-    1. [X] - Mostrar um aluno (CREATE)
-    1. [X] - Apagar um aluno (DELETE)
+    1. [X] - Função Show   -> Mostra um aluno (READ)
+    1. [X] - Função Delete -> Apaga um aluno  (DELETE)
+    1. [X] - Função Update -> Altera aluno    (UPDATE)
+    1. [X] - Função Store  -> Cria Aluno      (CREATE)
