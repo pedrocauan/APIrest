@@ -7,7 +7,15 @@ class AlunoController {
   }
 
   async store(req, res) {
-
+    try {
+      await Aluno.create(req.body);
+      return res.json({ msg: 'Criado com sucesso' });
+    } catch (e) {
+      console.log(e);
+      return res.status(404).json({
+        errors: e.errors.map((err) => err.message),
+      });
+    }
   }
 
   async update(req, res) {
@@ -84,20 +92,15 @@ class AlunoController {
         return res.status(400).json({
           errors: ['ID não enviado'],
         });
-
-        const aluno = await Aluno.findByPk(id);
-        if (!aluno) {
-          return res.status(400).json({
-            errors: ['Aluno não existe'],
-          });
-        }
-
-        await aluno.destroy();
-        // retorna um bool informando se o aluno foi ou nao apagado
-        return res.json({
-          apagado: true,
+      }
+      const aluno = await Aluno.findByPk(id);
+      if (!aluno) {
+        return res.status(400).json({
+          errors: ['Aluno não existe'],
         });
       }
+      await aluno.destroy();
+      return res.json({ msg: 'Deletado com sucesso' });
     } catch (e) {
       return res.status(400).json({
         errors: e.errors.map((err) => err.message),
