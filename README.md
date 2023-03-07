@@ -38,3 +38,5 @@
 1. [ ] - Upload de arquivos
     1. [X] - Instalando o multer
     1. [X] - Criando controller e rota
+    1. [X] - Criando arquivos de configuração
+    1. [X] - Upando fotos
