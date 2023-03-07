@@ -37,3 +37,4 @@
     1. [X] - Função Store  -> Cria Aluno      (CREATE)
 1. [ ] - Upload de arquivos
     1. [X] - Instalando o multer
+    1. [X] - Criando controller e rota
