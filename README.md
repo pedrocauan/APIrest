@@ -35,8 +35,10 @@
     1. [X] - Função Delete -> Apaga um aluno  (DELETE)
     1. [X] - Função Update -> Altera aluno    (UPDATE)
     1. [X] - Função Store  -> Cria Aluno      (CREATE)
-1. [ ] - Upload de arquivos
+1. [X] - Upload de arquivos
     1. [X] - Instalando o multer
     1. [X] - Criando controller e rota
     1. [X] - Criando arquivos de configuração
     1. [X] - Upando fotos
+1. [X] - Tratando fotos enviadas.
+    1. [X] - Evita o envio de outros tipos de arquivos.
