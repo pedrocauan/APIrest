@@ -11,7 +11,39 @@ class AlunoController {
   }
 
   async update(req, res) {
+    try {
+      const { id } = req.params;
 
+      if (!id) {
+        return res.status(400).json({
+          errors: ['ID não enviado'],
+        });
+      }
+      // pega aluno na db
+      const aluno = await Aluno.findByPk(id);
+
+      if (!aluno) {
+        return res.status(400).json({
+          errors: ['Aluno não existe'],
+        });
+      }
+      // === aluno com letra MINUSCULA *É O CAMPO QUE FOI RETORNADO NA PESQUISA* ===
+
+      // atualiza o registro  nos campos enviados no corpo da requisição
+      const novosDados = await aluno.update(req.body);
+      const {
+        nome, sobrenome, email, idade, peso, altura,
+      } = novosDados;
+
+      return res.json({
+        nome, sobrenome, email, idade, peso, altura,
+      });
+    } catch (e) {
+      return res.status(400).json({ msg: 'erro' });
+      // return res.status(400).json({
+      //   errors: e.errors.map((err) => err.message),
+      // });
+    }
   }
 
   // Mostra aluno na database
