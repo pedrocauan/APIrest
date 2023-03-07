@@ -32,3 +32,4 @@
     1. [X] - Criando migrate que alterar o campo email para unique
 1. [X] - CRUD DE ALUNOS
     1. [X] - Mostrar um aluno (CREATE)
+    1. [X] - Apagar um aluno (DELETE)
