@@ -3,10 +3,10 @@
 import { Router } from 'express';
 
 import fotoController from '../controllers/FotoController';
+import loginRequired from '../middlewares/loginRequired';
 
 const router = new Router();
 
-// single faz com que só possa ser upada uma foto
-router.post('/', fotoController.store);
+router.post('/', loginRequired, fotoController.store);
 
 export default router;

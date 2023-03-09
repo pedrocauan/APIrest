@@ -1,4 +1,4 @@
-// === ROTAS DA HOME ===
+// === ROTAS DO ALUNO ===
 
 import { Router } from 'express';
 import alunoController from '../controllers/AlunoController';

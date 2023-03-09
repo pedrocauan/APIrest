@@ -42,3 +42,4 @@
     1. [X] - Upando fotos
 1. [X] - Tratando fotos enviadas.
     1. [X] - Evita o envio de outros tipos de arquivos.
+1. [X] - Salvando fotos na database

@@ -1,4 +1,4 @@
-// === ROTAS DA HOME ===
+// === ROTAS DE USER ===
 
 import { Router } from 'express';
 import userController from '../controllers/UserController';

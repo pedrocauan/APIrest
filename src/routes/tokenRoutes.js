@@ -1,4 +1,4 @@
-// === ROTAS DA HOME ===
+// === ROTAS DO TOKEN ===
 
 import { Router } from 'express';
 import tokenController from '../controllers/TokenController';
