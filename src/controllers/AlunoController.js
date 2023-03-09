@@ -1,11 +1,17 @@
 import Aluno from '../models/Aluno';
+import Foto from '../models/Foto';
 
 class AlunoController {
   async index(req, res) {
     const alunos = await Aluno.findAll({
       attributes: ['id', 'nome', 'sobrenome', 'email', 'idade', 'peso', 'altura'],
       /* 1- CAMPO A SER ORDENADO, 2-> DESC (decrescente) ASC(CRESCENTE) */
-      order: [['ID', 'DESC']],
+      order: [['id', 'DESC'], [Foto, 'id', 'DESC']],
+      /* insere os dados de outra tabela */
+      include: {
+        model: Foto,
+        attributes: ['filename'],
+      },
     });
 
     res.json(alunos);
@@ -45,9 +51,9 @@ class AlunoController {
       // atualiza o registro  nos campos enviados no corpo da requisição
       const novosDados = await aluno.update(req.body);
       console.log(novosDados);
-      const {
+      /* const {
         nome, sobrenome, email, idade, peso, altura,
-      } = novosDados;
+      } = novosDados; */
       return res.json(novosDados);
     } catch (e) {
       console.log(typeof e.message);
@@ -73,7 +79,14 @@ class AlunoController {
       }
 
       // ve se o aluno existe na database
-      const aluno = await Aluno.findByPk(id);
+      const aluno = await Aluno.findByPk(id, {
+        attributes: ['id', 'nome', 'sobrenome', 'idade', 'peso', 'altura'],
+        order: [['id', 'DESC'], [Foto, 'id', 'DESC']],
+        include: {
+          model: Foto,
+          attributes: ['filename'],
+        },
+      });
 
       if (!aluno) {
         return res.status(400).json({
@@ -84,6 +97,7 @@ class AlunoController {
       // devolve o aluno buscado
       return res.json(aluno);
     } catch (e) {
+      console.log(e);
       return res.status(400).json({
         errors: e.errors.map((err) => err.message),
       });
