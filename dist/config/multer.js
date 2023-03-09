@@ -1,26 +1,26 @@
-// Multer é a lib que faz o upload de arquivos no node
-import multer from 'multer';
+"use strict";Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }// Multer é a lib que faz o upload de arquivos no node
+var _multer = require('multer'); var _multer2 = _interopRequireDefault(_multer);
 // extname  pega a extensão do arquivo enviado
-import { extname, resolve } from 'path';
+var _path = require('path');
 
 // aleatorio  pra caso o arquivo seja enviado no  mesmo milisegundo p  evitar duplicidade
 const aleatorio = () => Math.floor(Math.random() * 10000 + 10000);
 
-export default {
+exports. default = {
   fileFilter: (req, file, cb) => {
     if (file.mimetype !== 'image/png' && file.mimetype !== 'image/jpeg') {
-      return cb(new multer.MulterError('O arquivo precisa ser PNG ou JPG'));
+      return cb(new _multer2.default.MulterError('O arquivo precisa ser PNG ou JPG'));
     }
     return cb(null, true);
   },
-  storage: multer.diskStorage({
+  storage: _multer2.default.diskStorage({
     /* lugar que vai ser salvo o arquivo */
     destination: (req, file, cb) => {
-      cb(null, resolve(__dirname, '..', '..', 'uploads', 'images')); /* 1p-> erro , 2--> pasta que vai ser jogada o arquivo */
+      cb(null, _path.resolve.call(void 0, __dirname, '..', '..', 'uploads', 'images')); /* 1p-> erro , 2--> pasta que vai ser jogada o arquivo */
     },
     /* nome do arquivo */
     filename: (req, file, cb) => {
-      cb(null, `${Date.now()}_${aleatorio()}${extname(file.originalname)}`); /* 1p-> erro , 2--> nome do arquivo */
+      cb(null, `${Date.now()}_${aleatorio()}${_path.extname.call(void 0, file.originalname)}`); /* 1p-> erro , 2--> nome do arquivo */
     },
   }),
 };

@@ -1,16 +1,17 @@
 // CONFIGURAÇÕES DA APLICAÇÃO
 
 import dotenv from 'dotenv';
+import { resolve } from 'path';
 
 dotenv.config();
 
-import './src/database'; // linka com a database
+import './database'; // linka com a database
 import express from 'express';
-import homeRoutes from './src/routes/homeRoutes';
-import userRoutes from './src/routes/userRoutes';
-import tokenRoutes from './src/routes/tokenRoutes';
-import alunoRoutes from './src/routes/alunoRoutes';
-import fotoRoutes from './src/routes/fotoRoutes';
+import homeRoutes from './routes/homeRoutes';
+import userRoutes from './routes/userRoutes';
+import tokenRoutes from './routes/tokenRoutes';
+import alunoRoutes from './routes/alunoRoutes';
+import fotoRoutes from './routes/fotoRoutes';
 
 class App {
   constructor() {
@@ -20,8 +21,12 @@ class App {
   }
 
   middlewares() {
+    // permite objeto dentro de objeto
     this.app.use(express.urlencoded({ extended: true }));
+    // permite a leitura de json no express
     this.app.use(express.json());
+    // pasta de arquivos statis
+    this.app.use(express.static(resolve(__dirname, 'uploads')));
   }
 
   routes() {

@@ -12,5 +12,6 @@ const connection = new Sequelize(databaseConfig);
 
 // percorre todos os models e inicia a conexão com a database
 models.forEach((model) => model.init(connection));
-// caso exista a função associate ele executa ela  passando os models dentro como referencia a função
+/* caso exista a função associate ele executa ela  passando os
+models dentro como referencia a função */
 models.forEach((model) => model.associate && model.associate(connection.models));
