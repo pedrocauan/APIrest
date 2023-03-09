@@ -43,6 +43,4 @@
 1. [X] - Tratando fotos enviadas.
     1. [X] - Evita o envio de outros tipos de arquivos.
 1. [X] - Salvando fotos na database
-1. [ ] - Listando alunos com suas fotos
-    1. [X] - alterando a ordem de listagem para decrescente.
-    1. [ ] -
+1. [X] - Listando alunos com suas fotos
