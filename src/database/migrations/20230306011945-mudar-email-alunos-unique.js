@@ -8,7 +8,7 @@ module.exports = {
       'alunos', // 1p -> nome da tabela
       'email', // 2p -> nome da coluna
       {
-        type: Sequelize.STRING,
+        type: Sequelize.STRING(191),
         allowNull: false,
         unique: true,
       },

@@ -26,7 +26,7 @@ class App {
     // permite a leitura de json no express
     this.app.use(express.json());
     // pasta de arquivos statis
-    this.app.use(express.static(resolve(__dirname, 'uploads')));
+    this.app.use(express.static(resolve(__dirname,'..',  'uploads')));
   }
 
   routes() {

@@ -5,7 +5,7 @@ export default class Foto extends Model {
   static init(sequelize) {
     super.init({
       originalname: {
-        type: Sequelize.STRING,
+        type: Sequelize.STRING(191),
         defaultValue: '',
         validate: {
           notEmpty: {
@@ -15,7 +15,7 @@ export default class Foto extends Model {
       },
 
       filename: {
-        type: Sequelize.STRING,
+        type: Sequelize.STRING(191),
         defaultValue: '',
         validate: {
           notEmpty: {

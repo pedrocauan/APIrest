@@ -1,8 +1,8 @@
-"use strict";/** @type {import('sequelize-cli').Migration} */
+/** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
     // TABELA
-    await queryInterface.createTable('users', {
+    await queryInterface.createTable('fotos', {
       // ID
       id: {
         type: Sequelize.INTEGER,
@@ -12,23 +12,27 @@ module.exports = {
       },
 
       // NOME
-      nome: {
+      originalname: {
+        type: Sequelize.STRING(191),
+        allowNull: false,
+      },
+      filename: {
         type: Sequelize.STRING(191),
         allowNull: false,
       },
 
-      // EMAIL
-      email: {
-        type: Sequelize.STRING(191),
-        allowNull: false,
-        unique: true,
-      },
+      aluno_id: {
+        type: Sequelize.INTEGER,
+        allowNull: true,
+        // cria chave estrangeira no model de alunos
+        references: {
+          model: 'alunos', /* tabela no db */
+          key: 'id',
+        },
 
-      password_hash: {
-        type: Sequelize.STRING(191),
-        allowNull: false,
+        onDelete: 'SET NULL',
+        onUpdate: 'CASCADE', // CASCADE -> se o pai for alterado, o filho também vai ser
       },
-
       created_at: {
         type: Sequelize.DATE,
         allowNull: false,
@@ -46,6 +50,6 @@ module.exports = {
      * Add reverting commands here.
      *
      * Example: */
-    await queryInterface.dropTable('users');
+    await queryInterface.dropTable('fotos');
   },
 };

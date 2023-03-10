@@ -5,7 +5,7 @@ var _appConfig = require('../config/appConfig'); var _appConfig2 = _interopRequi
   static init(sequelize) {
     super.init({
       originalname: {
-        type: _sequelize2.default.STRING,
+        type: _sequelize2.default.STRING(191),
         defaultValue: '',
         validate: {
           notEmpty: {
@@ -15,7 +15,7 @@ var _appConfig = require('../config/appConfig'); var _appConfig2 = _interopRequi
       },
 
       filename: {
-        type: _sequelize2.default.STRING,
+        type: _sequelize2.default.STRING(191),
         defaultValue: '',
         validate: {
           notEmpty: {

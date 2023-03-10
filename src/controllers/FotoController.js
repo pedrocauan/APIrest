@@ -11,7 +11,7 @@ class FotoController {
       // se tiver erro no upload ele da erro
       if (error) {
         return res.status(400).json({
-          errors: [error.code],
+		errors: ['deu ruim'],
         });
       }
 
